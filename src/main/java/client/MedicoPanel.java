@@ -67,24 +67,24 @@ public class MedicoPanel extends JPanel {
         
         // Primera fila - Nombre y Especialidad
         gbc.gridx = 0; gbc.gridy = 0;
-        formFieldsPanel.add(createStyledLabel("Nombre:"), gbc);
+        formFieldsPanel.add(createStyledLabel("Nombre:      "), gbc);
         
         gbc.gridx = 1;
         gbc.gridwidth=2;
         txtNombre = createStyledTextField("Nombre");
         formFieldsPanel.add(txtNombre, gbc);
         
-        gbc.gridx = 3; gbc.gridy = 1;
+        gbc.gridx = 0; gbc.gridy = 1;
         formFieldsPanel.add(createStyledLabel("Especialidad:"), gbc);
         
-        gbc.gridx = 4; 
+        gbc.gridx = 2; 
         gbc.gridwidth=2;
         txtEspecialidad = createStyledTextField("Especialidad");
         formFieldsPanel.add(txtEspecialidad, gbc);
         
         // Segunda fila - Cédula y Correo
         gbc.gridx = 0; gbc.gridy = 2;
-        formFieldsPanel.add(createStyledLabel("Cédula:"), gbc);
+        formFieldsPanel.add(createStyledLabel("Cédula:      "), gbc);
         
         gbc.gridx = 1;
         gbc.gridwidth=2;
@@ -92,7 +92,7 @@ public class MedicoPanel extends JPanel {
         formFieldsPanel.add(txtCedula, gbc);
         
         gbc.gridx = 0; gbc.gridy = 3;
-        formFieldsPanel.add(createStyledLabel("Correo:"), gbc);
+        formFieldsPanel.add(createStyledLabel("Correo:      "), gbc);
         
         gbc.gridx = 1;
         gbc.gridwidth=2;
@@ -155,7 +155,7 @@ public class MedicoPanel extends JPanel {
     }
     
     private JTextField createStyledTextField(String placeholder) {
-        JTextField textField = new JTextField(20);
+        JTextField textField = new JTextField(15);
         textField.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         textField.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(BORDER_COLOR, 2),
