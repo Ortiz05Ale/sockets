@@ -1,13 +1,13 @@
 package server;
 
-import services.Cita;
-import services.CitaService;
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import models.Cita;
+import models.CitaService;
 
 public class CitaServiceImpl extends UnicastRemoteObject implements CitaService {
     
@@ -31,14 +31,14 @@ public class CitaServiceImpl extends UnicastRemoteObject implements CitaService 
             int affectedRows = stmt.executeUpdate();
             
             if (affectedRows == 0) {
-                throw new SQLException("La creación de la cita falló, no se insertaron filas.");
+                throw new SQLException("La creación de la cita falló, no se insertó ningún registro");
             }
             
             try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     cita.setId(generatedKeys.getInt(1));
                 } else {
-                    throw new SQLException("La creación de la cita falló, no se obtuvo el ID.");
+                    throw new SQLException("La creación de la cita falló, ID no encontrado");
                 }
             }
             
@@ -98,8 +98,8 @@ public class CitaServiceImpl extends UnicastRemoteObject implements CitaService 
             return citas;
             
         } catch (SQLException e) {
-            System.err.println("Error al listar citas: " + e.getMessage());
-            throw new RemoteException("Error al listar citas", e);
+            System.err.println("Error al obtener citas: " + e.getMessage());
+            throw new RemoteException("Error al obtener citas", e);
         }
     }
     
@@ -128,8 +128,8 @@ public class CitaServiceImpl extends UnicastRemoteObject implements CitaService 
             return citas;
             
         } catch (SQLException e) {
-            System.err.println("Error al listar citas por médico: " + e.getMessage());
-            throw new RemoteException("Error al listar citas por médico", e);
+            System.err.println("Error al obtener citas por médico: " + e.getMessage());
+            throw new RemoteException("Error al obtener citas por médico", e);
         }
     }
     
@@ -158,8 +158,8 @@ public class CitaServiceImpl extends UnicastRemoteObject implements CitaService 
             return citas;
             
         } catch (SQLException e) {
-            System.err.println("Error al listar citas por paciente: " + e.getMessage());
-            throw new RemoteException("Error al listar citas por paciente", e);
+            System.err.println("Error al listar obtener por paciente: " + e.getMessage());
+            throw new RemoteException("Error al obtener citas por paciente", e);
         }
     }
     

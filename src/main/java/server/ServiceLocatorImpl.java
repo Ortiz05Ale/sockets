@@ -1,12 +1,12 @@
 package server;
 
-import services.CitaService;
-import services.MedicoService;
-import services.PacienteService;
-import services.ServiceLocator;
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+
+import models.CitaService;
+import models.MedicoService;
+import models.PacienteService;
+import models.ServiceLocator;
 
 public class ServiceLocatorImpl extends UnicastRemoteObject implements ServiceLocator {
     private MedicoService medicoService;

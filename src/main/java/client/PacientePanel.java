@@ -1,10 +1,11 @@
 package client;
 
-import services.Paciente;
-import services.PacienteService;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import models.Paciente;
+import models.PacienteService;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;

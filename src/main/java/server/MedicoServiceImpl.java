@@ -1,13 +1,13 @@
 package server;
 
-import services.Medico;
-import services.MedicoService;
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import models.Medico;
+import models.MedicoService;
 
 public class MedicoServiceImpl extends UnicastRemoteObject implements MedicoService {
     
@@ -30,7 +30,7 @@ public class MedicoServiceImpl extends UnicastRemoteObject implements MedicoServ
             int affectedRows = stmt.executeUpdate();
             
             if (affectedRows == 0) {
-                throw new SQLException("La creación del médico falló, no se insertaron filas.");
+                throw new SQLException("La creación del médico falló, no se insertó ningúnn registro");
             }
 
             

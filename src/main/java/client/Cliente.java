@@ -1,9 +1,9 @@
 package client;
 
-import services.ServiceLocator;
-
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+
+import models.ServiceLocator;
 
 public class Cliente {
     private static ServiceLocator serviceLocator;
